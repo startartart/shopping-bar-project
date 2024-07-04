@@ -1,18 +1,25 @@
-import { MenuTypes } from '../../types/shopping.types';
+import { useShopStore } from '../../store/shoppingStore';
 
-type ShoppingHeaderProps = {
-  headerMenu: MenuTypes[];
-  handlePagination: (direction: string) => void;
-  selected: number;
-  currentPage: number;
-};
+export default function ShoppingPaginationBar() {
+  const { headerMenu, currentPage, selected, pagination } = useShopStore();
 
-export default function ShoppingPaginationBar({
-  headerMenu,
-  handlePagination,
-  selected,
-  currentPage,
-}: ShoppingHeaderProps) {
+  const handlePagination = (direction: string) => {
+    const currentTotalPage = headerMenu.find(
+      (content) => content.id === selected
+    )?.totalPage;
+
+    if (!currentTotalPage) return;
+
+    if (direction === 'next') {
+      if (currentTotalPage < currentPage + 1) pagination(1);
+      else pagination(currentPage + 1);
+    }
+    if (direction === 'prev') {
+      if (0 >= currentPage - 1) pagination(currentTotalPage);
+      else pagination(currentPage - 1);
+    }
+  };
+
   return (
     <div className="flex flex-row items-center gap-2.5">
       <div>

@@ -1,16 +1,12 @@
-import { MenuTypes } from '../../types/shopping.types';
+import { useShopStore } from '../../store/shoppingStore';
 
-type ShoppingHeaderProps = {
-  headerMenu: MenuTypes[];
-  handleSelected: (id: number) => void;
-  selected: number;
-};
+export default function ShoppingHeader() {
+  const { headerMenu, selected, changeSelected } = useShopStore();
 
-export default function ShoppingHeader({
-  headerMenu,
-  handleSelected,
-  selected,
-}: ShoppingHeaderProps) {
+  const handleSelected = (id: number) => {
+    changeSelected(id);
+  };
+
   return (
     <ul className="flex flex-row gap-3">
       {headerMenu.map((content, index) => {
