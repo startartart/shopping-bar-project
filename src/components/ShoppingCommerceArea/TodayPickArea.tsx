@@ -2,7 +2,7 @@ export default function TodayPickArea() {
   return (
     <div
       className="mx-5 my-3 px-5 py-3 bg-todayPick
-    flex flex-row items-center gap-2"
+    flex flex-row items-center gap-2 text-lg"
     >
       {/* 
       오늘의 혜택
