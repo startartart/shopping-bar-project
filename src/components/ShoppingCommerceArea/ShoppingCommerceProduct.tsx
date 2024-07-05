@@ -93,8 +93,10 @@ export default function ShoppingCommerceProduct() {
                   <div>
                     <img src={product.img} className="w-full h-36"></img>
                   </div>
-                  <span>{product.title}</span>
-                  <span>{product.subTitle}</span>
+                  <div className="hover:underline">
+                    <p>{product.title}</p>
+                    <p>{product.subTitle}</p>
+                  </div>
                 </div>
               );
             })}

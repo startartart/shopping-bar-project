@@ -1,4 +1,4 @@
-import ShoppingContainer from './components/ShoppingHeader/ShoppingContainer';
+import ShoppingContainer from './components/ShoppingContainer/ShoppingContainer';
 import ShoppingCommerceArea from './components/ShoppingCommerceArea/ShoppingCommerceArea';
 import PaginationFooter from './components/PaginationFooter/PaginationFooter';
 export default function App() {

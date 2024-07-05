@@ -1,25 +1,34 @@
 import ShoppingCommerceDescription from './ShoppingCommerceDescription';
 import ShoppingCommerceProduct from './ShoppingCommerceProduct';
-import TodayPickArea from './TodayPickArea';
+import TodayPickArea from './TodayPickArea/TodayPickArea';
+import { useShopStore } from '../../store/shoppingStore';
 import PlusDealArea from './PlusDealArea';
 import SideArea from './SideArea';
 import ShoppingLiveArea from './ShoppingLiveArea';
 
 export default function ShoppingCommerceArea() {
+  const { headerMenu, selected } = useShopStore();
   return (
     <div className="flex flex-col">
       {/* 쇼핑, 맨즈 */}
-      <div className="flex gap-5">
-        <ShoppingCommerceDescription />
-        <ShoppingCommerceProduct />
+      <div className="min-h-main">
+        {selected >= 3 && <TodayPickArea />}
+        {selected <= 2 && (
+          <>
+            <div className="flex gap-5">
+              <ShoppingCommerceDescription />
+              <ShoppingCommerceProduct />
+            </div>
+            <TodayPickArea />
+          </>
+        )}
       </div>
-      <TodayPickArea />
     </div>
   );
 }
 
 // {/* 원쁠딜, 쇼핑라이브 */}
-// <TodayPickArea />
+//
 
 // {/* 원쁠딜 */}
 // <PlusDealArea />
