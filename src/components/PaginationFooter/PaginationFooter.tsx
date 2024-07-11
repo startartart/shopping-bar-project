@@ -58,12 +58,14 @@ export default function PaginationFooter() {
         </div>
       </div>
       <div className="absolute right-5 top-0 h-full flex">
-        <p
-          className="px-2 text-commerceCurrent self-center
-         border border-adColor rounded"
-        >
-          AD
-        </p>
+        {selected <= 2 && (
+          <p
+            className="px-2 text-commerceCurrent self-center
+       border border-adColor rounded"
+          >
+            AD
+          </p>
+        )}
       </div>
     </div>
   );
